@@ -28,8 +28,8 @@ class Gallery(models.Model):
         return str(self.name) 
 
     def image_tag(self):
-        if self.thumnail_images != '':
-            return mark_safe('<img src="%s%s" width="50" height="50" />' % (f'{settings.MEDIA_URL}', self.thumnail_images))
+        if self.image != '':
+            return mark_safe('<img src="%s%s" width="50" height="50" />' % (f'{settings.MEDIA_URL}', self.image))
 
 
 class Contact(models.Model):

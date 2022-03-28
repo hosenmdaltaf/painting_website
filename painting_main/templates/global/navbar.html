@@ -25,7 +25,7 @@
                    </div>
                 </div>
              </div>
-             <div class="col-xxl-6 col-xl-4 col-lg-4">
+             {% comment %} <div class="col-xxl-6 col-xl-4 col-lg-4">
                 <div class="header__top-right d-flex align-items-center justify-content-end">
                    <div class="header__search p-relative mr-20">
                       <form action="#">
@@ -43,7 +43,7 @@
                       </select>
                    </div>
                 </div>
-             </div>
+             </div> {% endcomment %}
           </div>
        </div>
     </div>
@@ -74,9 +74,24 @@
                                    <li>
                                       <a href="{% url 'homeapp:aboutpage' %}">About us</a>
                                    </li>
-                                   <li>
+                                   
+                                   {% comment %} <li>
                                       <a href="{% url 'homeapp:servicepage' %}">Services</a></li>
-                                      <li>
+
+                                    <li>  {% endcomment %}
+
+                                  <li>
+                                       <a href="#">Services <i class="far fa-angle-down"></i></a>
+                                       <ul class="submenu">
+                                          {% for service in all_services %}
+                                          <li><a href="{% url 'homeapp:services_details' service.pk %}">{{service.name}}</a></li>
+                                          {% endfor %}
+                                       
+                                       </ul>
+                                    </li>
+
+
+                                    <li>
                                         <a href="{% url 'homeapp:workpage' %}">Our works</a>
                                      </li>
                                

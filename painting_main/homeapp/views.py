@@ -1,11 +1,18 @@
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Services
+from .models import Services,Review
 
 
 # Create your views here.
 def home(request):
-    return render(request,'homeapp/home.html')
+    services= Services.objects.all()
+    reviews= Review.objects.all()
+    context ={
+        'services':services,
+        'reviews':reviews
+    }
+    return render(request,'homeapp/home.html',context)
 
 def about(request):
     return render(request,'homeapp/about.html')
@@ -21,4 +28,7 @@ def contact(request):
 
 def services_details(request,pk):
     data = Services.objects.get(pk=pk)
-    return HttpResponse(data.name,data.thumnail_images)
+    context={
+        'data':data
+    }
+    return render(request,'homeapp/service_details.html',context)

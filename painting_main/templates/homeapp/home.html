@@ -26,12 +26,12 @@
                    <div class="hero__thumb-1 text-end">
                       <img src="{% static 'img/hero/hero-1.png' %}" alt="">
                    </div>
-                   <div class="hero__thumb-2 d-none d-xl-block text-end">
+                   {% comment %} <div class="hero__thumb-2 d-none d-xl-block text-end">
                       <span>
                          <img src="assets/img/hero/hero-2.jpg" alt="">
                          <a href="https://youtu.be/-WRZI63emjs" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                       </span>
-                   </div>
+                   </div> {% endcomment %}
                 </div>
              </div>
           </div>
@@ -80,59 +80,55 @@
                       </div>
                    </div>
                 </div>
+     
                 <div class="row">
-                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                      <div class="services__item-3 mb-30 transition-3 p-relative">
-                         <div class="services__thumb-3 w-img fix">
-                            <img src="{% static 'img/services/03/services-1.jpg' %}" alt="">
-                         </div>
-                         <div class="services__content-3">
-                            <div class="services__icon services__icon-3">
-                               <i class="flaticon-paint-1"></i>
-                            </div>
-                            <h3 class="services__title-3">
-                               <a href="services-details.html">Commercial Interior</a>
-                            </h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                      <div class="services__item-3 mb-30 transition-3 p-relative">
-                         <div class="services__thumb-3 w-img fix">
-                            <img src="{% static 'img/services/03/services-2.jpg' %}" alt="">
-                         </div>
-                         <div class="services__content-3">
-                            <div class="services__icon services__icon-3">
-                               <i class="flaticon-varnish"></i>
-                            </div>
-                            <h3 class="services__title-3">
-                               <a href="services-details.html">Residential Interior</a>
-                            </h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
-                      <div class="services__item-3 mb-30 transition-3 p-relative">
-                         <div class="services__thumb-3 w-img fix">
-                            <img src="{% static 'img/services/03/services-3.jpg' %}" alt="">
-                         </div>
-                         <div class="services__content-3">
-                            <div class="services__icon services__icon-3">
-                               <i class="flaticon-paint-2"></i>
-                            </div>
-                            <h3 class="services__title-3">
-                               <a href="services-details.html">Industrial Interior</a>
-                            </h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                         </div>
-                      </div>
-                   </div>
-                </div>
+                  {% for service in services%}
+                  <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
+                     <div class="services__item services__item-2 p-relative mb-30">
+                        <div class="services__thumb w-img">
+                           <img src="{{service.thumnail_images.url}}" alt="">
+                        </div>
+                        <div class="services__content services__content-2 text-center">
+                           <div class="services__icon services__icon-2">
+                              <i class="flaticon-paint-1"></i>
+                           </div>
+                           <h3 class="services__title">
+                              <a href="{% url 'homeapp:services_details' service.pk %}">{{service.name}}</a>
+                           </h3>
+                           {% comment %} <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p> {% endcomment %}
+                           <a href="{% url 'homeapp:services_details' service.pk %}" class="link-btn-2">
+                              read more
+                              <i class="far fa-arrow-right"></i>
+                              <i class="far fa-arrow-right"></i>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+
              </div>
           </section>
           <!-- services area end -->
+
+
+          <section class="testimonial__area pt-125 pb-130 grey-bg p-relative z-index-1">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-6 offset-xxl-3">
+                     <div class="section__title-wrapper mb-80 text-center">
+                        {% comment %} <span class="section__title-pre section__title-pre-2 center">Call in action</span> {% endcomment %}
+                        <div class="testimonial__thumb mb-25">
+                           <img src="{% static 'img/testimonial/testi-1.jpg' %}" alt="">
+                        </div>
+                        <h2 class="section__title section__title-2">Need any help call us now!</h2>
+                        <p>Feel Free To Call Us - +65 6850 5025</p>
+                        <a href="contact.html" class="r-btn r-btn-yellow">Call to action <i class="far fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
 
 
       <!-- testimonial area start -->
@@ -150,76 +146,21 @@
                       <div class="testimonial-pagination"></div>
                       <div class="testimonial__slider-3 swiper-container p-relative">
                          <div class="swiper-wrapper">
+
+                           {% for review in reviews %}
                          <div class="testimonial__item-3 swiper-slide">
                             <div class="testimonial__content-3 white-bg">
-                               <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu  inventore veritatis et quasi architecto beatae vitae </p>
+                               <p> {{review.details}} </p>
                                <div class="testimonial__avater-info-3">
-                                  <h4>David Warner</h4>
-                                  <span>CEO & Founder</span>
+                                  <h4>{{review.name}}</h4>
+                             
                                </div>
                             </div>
-                            <div class="testimonial__avater-3 pl-25">
-                               <div class="testimonial__avater-3-thumb">
-                                  <img src="{% static 'img/testimonial/03/testi-5.jpg' %}" alt="">
-                               </div>
-                            </div>
+                        
                          </div>
-                         <div class="testimonial__item-3 swiper-slide">
-                            <div class="testimonial__content-3 white-bg">
-                               <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu  inventore veritatis et quasi architecto beatae vitae </p>
-                               <div class="testimonial__avater-info-3">
-                                  <h4>David Warner</h4>
-                                  <span>CEO & Founder</span>
-                               </div>
-                            </div>
-                            <div class="testimonial__avater-3 pl-25">
-                               <div class="testimonial__avater-3-thumb">
-                                  <img src="{% static 'img/testimonial/03/testi-1.jpg' %}" alt="">
-                               </div>
-                            </div>
-                         </div>
-                         <div class="testimonial__item-3 swiper-slide">
-                            <div class="testimonial__content-3 white-bg">
-                               <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu  inventore veritatis et quasi architecto beatae vitae </p>
-                               <div class="testimonial__avater-info-3">
-                                  <h4>David Warner</h4>
-                                  <span>CEO & Founder</span>
-                               </div>
-                            </div>
-                            <div class="testimonial__avater-3 pl-25">
-                               <div class="testimonial__avater-3-thumb">
-                                  <img src="{% static 'img/testimonial/03/testi-2.jpg' %}" alt="">
-                               </div>
-                            </div>
-                         </div>
-                         <div class="testimonial__item-3 swiper-slide">
-                            <div class="testimonial__content-3 white-bg">
-                               <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu  inventore veritatis et quasi architecto beatae vitae </p>
-                               <div class="testimonial__avater-info-3">
-                                  <h4>David Warner</h4>
-                                  <span>CEO & Founder</span>
-                               </div>
-                            </div>
-                            <div class="testimonial__avater-3 pl-25">
-                               <div class="testimonial__avater-3-thumb">
-                                  <img src="{% static 'img/testimonial/03/testi-3.jpg' %}" alt="">
-                               </div>
-                            </div>
-                         </div>
-                         <div class="testimonial__item-3 swiper-slide">
-                            <div class="testimonial__content-3 white-bg">
-                               <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatu  inventore veritatis et quasi architecto beatae vitae </p>
-                               <div class="testimonial__avater-info-3">
-                                  <h4>David Warner</h4>
-                                  <span>CEO & Founder</span>
-                               </div>
-                            </div>
-                            <div class="testimonial__avater-3 pl-25">
-                               <div class="testimonial__avater-3-thumb">
-                                  <img src="{% static 'img/testimonial/03/testi-4.jpg' %}" alt="">
-                               </div>
-                            </div>
-                         </div>
+                         {% endfor %}
+
+
                          </div>
                       </div>
                    </div>
@@ -231,7 +172,7 @@
     <!-- testimonial area end -->
 
     <!-- services area start -->
-    <section class="services__area p-relative z-index-1 pt-130 pb-555">
+    {% comment %} <section class="services__area p-relative z-index-1 pt-130 pb-555">
        <div class="services__bg" data-background="{% static 'img/services/02/services-bg-2.jpg' %}"></div>
        <div class="container">
           <div class="row">
@@ -308,7 +249,7 @@
              </div>
           </div>
        </div>
-    </section>
+    </section> {% endcomment %}
     <!-- services area end -->
 
           <!-- contact area start -->
