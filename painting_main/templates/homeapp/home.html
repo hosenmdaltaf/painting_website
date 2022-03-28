@@ -267,40 +267,52 @@
                    <div class="col-xxl-12">
                       <div class="contact__wrapper-4">
                          <div class="contact__form-3 contact__form-4">
-                            <form action="#">
+
+
+                               <form action="#" method="POST">
+
+                                 {% if messages %}
+                                 <ul class="messages">
+                                    {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                 </ul>
+                                 {% endif %}
+
+                               {% csrf_token %}
                                <div class="row">
                                   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                      <div class="contact__input-3">
-                                        <input type="text" placeholder="Your Full Name">
+                                        <input name="name" type="text" placeholder="Your Full Name">
                                         <i class="far fa-user"></i>
                                      </div>
                                   </div>
                                   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                      <div class="contact__input-3">
-                                        <input type="email" placeholder="Your Email Address">
+                                        <input name="email" type="email" placeholder="Your Email Address">
                                         <i class="far fa-envelope"></i>
                                      </div>
                                   </div>
                                   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                      <div class="contact__input-3">
-                                        <input type="tel" placeholder="Phone Number">
+                                        <input name="phone" type="tel" placeholder="Phone Number">
                                         <i class="far fa-phone"></i>
                                      </div>
                                   </div>
                                   <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                      <div class="contact__input-3">
-                                        <select>
-                                           <option>Select Services</option>
-                                           <option>Option 1</option>
-                                           <option>Option 2</option>
-                                           <option>Option 3</option>
-                                           <option>Option 4</option>
+                                        <select name="services">
+                                           <option >Select Services</option>
+                                           {% for service in all_services %}
+                                           <option >{{service.name}}</option>
+                                           {% endfor %}
+                  
                                         </select>
                                      </div>
                                   </div>
                                   <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
                                      <div class="contact__input-3">
-                                        <textarea placeholder="Message"></textarea>
+                                        <textarea name="message" placeholder="Message"></textarea>
                                      </div>
                                   </div>
                                   <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
@@ -310,6 +322,8 @@
                                   </div>
                                </div>
                             </form>
+
+
                          </div>
                       </div>
                    </div>
