@@ -3,41 +3,74 @@
 
 {% block content %}
 
-    <!-- hero area start -->
-    <section class="hero__area hero__height green-bg-2 p-relative d-flex align-items-center">
-       <div class="hero__shape d-none d-md-block">
-          <span class="hero-shape-circle"></span>
-          <img class="hero__shape-2" src="assets/img/hero/hero-shape-2.png" alt="">
-       </div>
-       <div class="container">
-          <div class="row align-items-center">
-             <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-6">
-                <div class="hero__content pt-110 p-relative">
-                   <span>25 Years Of Experience</span>
-                   <h3 class="hero__title">  Painting Service Agency</h3>
-                   <div class="hero__btn">
-                      <a href="contact.html" class="r-btn r-btn-yellow mr-5">get started <i class="far fa-arrow-right"></i></a>
-                      <a href="services.html" class="r-btn r-btn-border">our services <i class="far fa-arrow-right"></i></a>
-                   </div>
-                </div>
-             </div>
-             <div class="col-xxl-7 col-xl-6 col-lg-6 col-md-6">
-                <div class="hero__thumb d-none d-md-block">
-                   <div class="hero__thumb-1 text-end">
-                      <img src="{% static 'img/hero/hero-1.png' %}" alt="">
-                   </div>
-                   {% comment %} <div class="hero__thumb-2 d-none d-xl-block text-end">
-                      <span>
-                         <img src="assets/img/hero/hero-2.jpg" alt="">
-                         <a href="https://youtu.be/-WRZI63emjs" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                      </span>
-                   </div> {% endcomment %}
-                </div>
-             </div>
-          </div>
-       </div>
-    </section>
-    <!-- hero area end -->
+  <!-- slider area start -->
+  <section class="slider__area">
+   <div class="slider__active swiper-container">
+      <div class="swiper-wrapper">
+         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-1.jpg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="slider__content text-center">
+                        <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span>
+                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
+
+                        <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
+                           <a href ="{% url 'homeapp:contactpage' %}" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
+                           <a href ="{% url 'homeapp:servicepage' %}" class="r-btn">our services<i class="far fa-arrow-right"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-2.jpg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="slider__content text-center">
+                        <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span>
+                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
+
+                        <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
+                           <a href ="{% url 'homeapp:contactpage' %}" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
+                           <a href ="{% url 'homeapp:servicepage' %}" class="r-btn">our services<i class="far fa-arrow-right"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-3.jpg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xxl-12">
+                     <div class="slider__content text-center">
+                        <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span>
+                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
+
+                        <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
+                           <a href ="contact.html" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
+                           <a href ="services.html" class="r-btn">our services<i class="far fa-arrow-right"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="slider__nav">
+         <div class="swiper-button-prev swiper-slider-nav">
+            <i class="fal fa-angle-left"></i>
+         </div>
+         <div class="swiper-button-next swiper-slider-nav">
+            <i class="far fa-angle-right"></i>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- slider area end -->
+
 
 
       <!-- features area start -->
@@ -47,17 +80,14 @@
              <div class="col-xxl-5 col-xl-6 col-lg-6">
                 <div class="features__wrapper-3 features__wrapper-border pr-45">
                    <div class="section__title-wrapper mb-80 text-lg-end">
-                      <span class="section__title-pre section__title-pre-3 right">Who We Are</span>
-                      <h2 class="section__title section__title-2">Explore About <br> Our Core Features</h2>
-                   </div>
+                      {% comment %} <span class="section__title-pre section__title-pre-3 right">Who We Are</span> {% endcomment %}
+                      <h2 class="section__title section__title-2"> PS Painting <br>  Services Singapore</h2>
+                   </div> 
                 </div>
              </div>
              <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6">
                 <div class="features__wrapper-3">
-                   <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan
-                      tium dolormque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi arhitecto beatae vitae dicta sunt explicabo. 
-                      Nemo enim ipsam voluptatem quia voluptas sitas pernatur aut odit aut
-                      sed quia consequuntur magni dolores eos  Sed ut perspiciatis</p>
+                   <p>Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
                 </div>
              </div>
           </div>
@@ -83,10 +113,12 @@
      
                 <div class="row">
                   {% for service in services%}
+            
+
                   <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
                      <div class="services__item services__item-2 p-relative mb-30">
                         <div class="services__thumb w-img">
-                           <img src="{{service.thumnail_images.url}}" alt="">
+                           <img src="{{service.thumnail_images.url}}" alt="" style="height:250px;">
                         </div>
                         <div class="services__content services__content-2 text-center">
                            <div class="services__icon services__icon-2">
@@ -95,7 +127,7 @@
                            <h3 class="services__title">
                               <a href="{% url 'homeapp:services_details' service.pk %}">{{service.name}}</a>
                            </h3>
-                           {% comment %} <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p> {% endcomment %}
+                 
                            <a href="{% url 'homeapp:services_details' service.pk %}" class="link-btn-2">
                               read more
                               <i class="far fa-arrow-right"></i>
@@ -123,7 +155,7 @@
                         </div>
                         <h2 class="section__title section__title-2">Need any help call us now!</h2>
                         <p>Feel Free To Call Us - +65 6850 5025</p>
-                        <a href="contact.html" class="r-btn r-btn-yellow">Call to action <i class="far fa-arrow-right"></i></a>
+                        <a href="tel:68505025" class="r-btn r-btn-yellow">Call to action <i class="far fa-arrow-right"></i></a>
                      </div>
                   </div>
                </div>
@@ -132,7 +164,8 @@
 
 
       <!-- testimonial area start -->
-      <section class="testimonial__area testimonial__area-2 pt-310 pb-130" data-background="{% static 'img/testimonial/03/testimonial-bg.jpg' %}">
+      <section class="testimonial__area testimonial__area-2 pt-310 pb-130" 
+      data-background="{% static 'img/testimonial/03/testimonial-bg.jpg' %}">
        <div class="container">
           <div class="row">
              <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8">
@@ -171,86 +204,6 @@
     </section>
     <!-- testimonial area end -->
 
-    <!-- services area start -->
-    {% comment %} <section class="services__area p-relative z-index-1 pt-130 pb-555">
-       <div class="services__bg" data-background="{% static 'img/services/02/services-bg-2.jpg' %}"></div>
-       <div class="container">
-          <div class="row">
-             <div class="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-                <div class="section__title-wrapper mb-80 text-center">
-                   <span class="section__title-pre section__title-pre-white center">What We Offer</span>
-                   <h2 class="section__title section__title-white">We Help You For Made Your Dream Painting</h2>
-                </div>
-             </div>
-          </div>
-          <div class="row">
-             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="services__item services__item-2 p-relative mb-30">
-                   <div class="services__thumb w-img">
-                      <img src="{% static 'img/services/services-1.jpg' %}" alt="">
-                   </div>
-                   <div class="services__content services__content-2 text-center">
-                      <div class="services__icon services__icon-2">
-                         <i class="flaticon-paint-1"></i>
-                      </div>
-                      <h3 class="services__title">
-                         <a href="services-details.html">Residential Interior</a>
-                      </h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                      <a href="services-details.html" class="link-btn-2">
-                         read more
-                         <i class="far fa-arrow-right"></i>
-                         <i class="far fa-arrow-right"></i>
-                      </a>
-                   </div>
-                </div>
-             </div>
-             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="services__item services__item-2 p-relative mb-30">
-                   <div class="services__thumb w-img">
-                      <img src="{% static 'img/services/services-2.jpg' %}" alt="">
-                   </div>
-                   <div class="services__content services__content-2 text-center">
-                      <div class="services__icon services__icon-2">
-                         <i class="flaticon-varnish"></i>
-                      </div>
-                      <h3 class="services__title">
-                         <a href="services-details.html">Commercial Interior</a>
-                      </h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                      <a href="services-details.html" class="link-btn-2">
-                         read more
-                         <i class="far fa-arrow-right"></i>
-                         <i class="far fa-arrow-right"></i>
-                      </a>
-                   </div>
-                </div>
-             </div>
-             <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
-                <div class="services__item services__item-2 p-relative mb-30">
-                   <div class="services__thumb w-img">
-                      <img src="assets/img/services/services-3.jpg" alt="">
-                   </div>
-                   <div class="services__content services__content-2 text-center">
-                      <div class="services__icon services__icon-2">
-                         <i class="flaticon-paint-2"></i>
-                      </div>
-                      <h3 class="services__title">
-                         <a href="services-details.html">Industrial Interior</a>
-                      </h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit volupt ateaccu</p>
-                      <a href="services-details.html" class="link-btn-2">
-                         read more
-                         <i class="far fa-arrow-right"></i>
-                         <i class="far fa-arrow-right"></i>
-                      </a>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
-    </section> {% endcomment %}
-    <!-- services area end -->
 
           <!-- contact area start -->
           <section class="contact__area pt-90 pb-130">
@@ -258,8 +211,8 @@
                 <div class="row">
                    <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                       <div class="section__title-wrapper mb-70 text-center">
-                         <span class="section__title-pre section__title-pre-3 center">Get In Touch</span>
-                         <h2 class="section__title section__title-2">Don’t Hesited To Conatct With Roxce</h2>
+                        <span class="section__title-pre section__title-pre-3 center">PS PAINTING SERVICES SINGAPORE</span>
+                        <h2 class="section__title section__title-2">LET'S GET IN TOUCH </h2>
                       </div>
                    </div>
                 </div>
@@ -337,7 +290,7 @@
                    <div class="col-xxl-12">
                       <div class="contact__map-wrapper p-relative">
                          <img class="map-pin" src="{% static 'img/contact/map-pin.png' %}" alt="">
-                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7977.577175975589!2d103.861329!3d1.301765!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x365ad5e4fd3cf54!2sPS%20Painting%20Service%20Singapore%20-%20Condo%2C%20HDB%2C%20House%20%26%20Room!5e0!3m2!1sen!2smy!4v1648537192620!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                       </div>
                    </div>
                 </div>

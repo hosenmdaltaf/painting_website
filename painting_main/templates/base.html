@@ -9,7 +9,7 @@
 <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Roxce - Painting Services Company HTML5 Template </title>
+      <title>PS Painting Services Singapore </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Place favicon.ico in the root directory -->
@@ -28,7 +28,56 @@
       <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
       <link rel="stylesheet" href="{% static 'css/default.css' %}">
       <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
    </head>
+
+<style>
+
+   .sticky-social{
+      position:fixed;
+      top:40%;
+      {% comment %} left:-40px; {% endcomment %}
+      padding:0px;
+      margin:0px;
+      z-index: 300;
+    }
+    .social{
+      list-style:none;
+      background-color:black;
+    }
+    .social li{
+      padding:10px 10px;
+      font-size:25px;
+      transition:all 0.8s ease-in-out;
+    }
+    .social li:hover{
+        margin-right:-30px;
+     box-shadow:2px 5px 10px grey;
+    }
+    .social li:hover .fa{
+        margin-left:20px;
+      
+    }
+    .fa{
+      color:#fff;
+      transition:all 0.8s ease-in-out;
+    }
+ 
+    .wh{
+        background-color:#43d854;
+    }
+    .email{
+        background-color:#ea4335;
+    }
+    .call{
+        background-color:black;
+    }
+ 
+
+</style>
+
    <body>
 
       <!-- Add your site or application content here -->
@@ -62,7 +111,7 @@
       <!-- sidebar area end -->
 
       <!-- search overlay start -->
-      {% comment %} <section class="search__area d-flex align-items-center">
+<section class="search__area d-flex align-items-center">
          <div class="container">
             <div class="row">
                <div class="col-xxl-12">
@@ -80,22 +129,37 @@
                </div>
             </div>
          </div>
-      </section> {% endcomment %}
+      </section> 
       <!-- search overlay end -->
 
  
 <main>
+
+
 
     {% include 'global/navbar.html' %}
 
     {% block content %}
     
     
+
     {% endblock %}
-    
+
+
     {% include 'global/footer.html' %}
     
  </main>
+
+    <div class="sticky-social"> 
+     
+      <ul class="social">
+
+        <li class="wh"><a href="https://wa.me/6598430993"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        <li class="call"><a href="tel:68505025"> <i class="fa fa-phone" aria-hidden="true"></i></a></li>
+        <li class="email"><a href="mailto:info@paintingservicesingapore.sg"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+     
+        </ul>
+      </div>
 
 
       <!-- JS here -->
@@ -116,6 +180,8 @@
       <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
       <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
       <script src="{% static 'js/main.js' %}"></script>
+
+
    </body>
 
 <!-- Mirrored from themepure.net/template/roxce/roxce/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Mar 2022 08:32:52 GMT -->
