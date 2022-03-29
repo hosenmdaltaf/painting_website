@@ -9,7 +9,8 @@
       <!-- header area start -->
       <header>
          <div class="header__area">
-            <div class="header__top grey-bg pl-55 pr-55 header__padding d-none d-lg-block">
+
+            <div  class="header__top grey-bg pl-55 pr-55 header__padding d-none d-lg-block">
                <div class="container-fluid">
                   <div class="row align-items-center">
                      <div class="col-xxl-6 col-xl-8 col-lg-8">
@@ -33,13 +34,15 @@
                   </div>
                </div>
             </div>
+
             <div id="header-sticky" class="header__bottom pl-55 pr-55 header__padding">
                <div class="container-fluid">
                   <div class="row align-items-center">
                      <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-6 col-sm-6 col-6">
                         <div class="logo">
                            <a href="{% url 'homeapp:homepage' %}">
-                              <img src="assets/img/logo/logo.png" alt="logo">
+                              {% comment %} <img src="assets/img/logo/logo.png" alt="logo"> {% endcomment %}
+                              <h1 style="font-size:16px;">PS PAINTING SERVICES</h1>
                            </a>
                         </div>
                      </div>
@@ -65,13 +68,7 @@
                                        <a href="{% url 'homeapp:workpage' %}">Our works</a>
                                    
                                     </li>
-                                    <li>
-                                       <a href="blog.html">News <i class="far fa-angle-down"></i></a>
-                                       <ul class="submenu">
-                                          <li><a href="blog.html">News</a></li>
-                                          <li><a href="blog-details.html">News Details</a></li>
-                                       </ul>
-                                    </li>
+                            
                                     <li>
                                        <a href="{% url 'homeapp:contactpage' %}">Conatct</a>
                                     </li>
@@ -122,8 +119,9 @@
             </div>
             <div class="sidebar__content">
                <div class="sidebar__logo mb-40">
-                  <a href="index.html">
-                  <img src="assets/img/logo/logo.png" alt="logo">
+                  <a href="{% url 'homeapp:homepage' %}">
+                  {% comment %} <img src="assets/img/logo/logo.png" alt="logo"> {% endcomment %}
+                  <h1>PS PAINTING SERVICES</h1>
                   </a>
                </div>
                <div class="sidebar__search mb-25">
@@ -134,57 +132,11 @@
                </div>
                <div class="mobile-menu fix"></div>
                <div class="sidebar__text d-none d-lg-block">
-                  <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and will give you a complete account of the system and expound the actual teachings of the great explore</p>
+                  <p>We are a plaform of painting service and our service providers are group of dedicated professionals who are committed to providing the residents of Singapore with an exclusive and outstanding service. We have come to a common point from diverse backgrounds. Each member gives his input, when working on a common project. This actually helps us grow and do better on so many levels. Our people know about thing they are doing and most importantly, they have years of experience on their hands. They are dedicated, hardworking and won’t let their customers down.</p>
                </div>
-               <div class="sidebar__img d-none d-lg-block mb-20">
-                  <div class="row gx-2">
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-1.jpg">
-                              <img src="assets/img/sidebar/sidebar-1.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-2.jpg">
-                              <img src="assets/img/sidebar/sidebar-2.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-3.jpg">
-                              <img src="assets/img/sidebar/sidebar-3.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-4.jpg">
-                              <img src="assets/img/sidebar/sidebar-4.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-5.jpg">
-                              <img src="assets/img/sidebar/sidebar-5.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                     <div class="col-4">
-                        <div class="sidebar__single-img w-img mb-10">
-                           <a class="popup-image" href="assets/img/sidebar/sidebar-6.jpg">
-                              <img src="assets/img/sidebar/sidebar-6.jpg" alt="">
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="sidebar__map d-none d-lg-block mb-15">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
-               </div>
+
+       
+          
                <div class="sidebar__contact mt-30 mb-20">
                   <h4>Contact Info</h4>
 
@@ -194,7 +146,7 @@
                            <i class="fal fa-map-marker-alt"></i>
                         </div>
                         <div class="sidebar__contact-text">
-                           <a target="_blank" href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">12/A, Mirnada City Tower, NYC</a>
+                           <a target="_blank" href="#">7B Aliwal Street Chenn Leon Building, Singapore 199900</a>
                         </div>
                      </li>
                      <li class="d-flex align-items-center">
@@ -202,7 +154,7 @@
                            <i class="far fa-phone"></i>
                         </div>
                         <div class="sidebar__contact-text">
-                           <a href="https://themepure.net/cdn-cgi/l/email-protection#dcafa9acacb3aea89cbbb1bdb5b0f2bfb3b1">088889797697</a>
+                           <a href="tel:+68505025">68505025</a>
                         </div>
                      </li>
                      <li class="d-flex align-items-center">
@@ -210,7 +162,7 @@
                            <i class="fal fa-envelope"></i>
                         </div>
                         <div class="sidebar__contact-text">
-                           <a href="tel:+012-345-6789"><span class="__cf_email__" data-cfemail="2d5e585d5d425f596d404c4441034e4240">[email&#160;protected]</span></a>
+                           <a href="tel:+68505025"><span class="__cf_email__">info@paintingservicesingapore.sg</span></a>
                         </div>
                      </li>
                   </ul>
