@@ -1,7 +1,7 @@
 from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Services,Review,Contact,Gallery
+from .models import Services,Review,Contact,Gallery, Slider
 from django.contrib import messages
 
 
@@ -9,6 +9,7 @@ from django.contrib import messages
 def home(request):
     services= Services.objects.all()
     reviews= Review.objects.all()
+    sliders= Slider.objects.all()
     if request.method =="POST":
         try:
             name= request.POST.get('name')
@@ -22,7 +23,8 @@ def home(request):
             messages.warning(request, 'Please fill up all the form feild currectly!')
     context ={
         'services':services,
-        'reviews':reviews
+        'reviews':reviews,
+        'sliders':sliders
     }
     return render(request,'homeapp/home.html',context)
 

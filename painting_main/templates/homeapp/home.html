@@ -5,16 +5,17 @@
 
   <!-- slider area start -->
   <section class="slider__area">
-   <div class="slider__active swiper-container">
+   <div class="slider__active swiper-container"> 
       <div class="swiper-wrapper">
 
-         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-1.jpg">
+         {% for slider in sliders %}
+         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="{{slider.slider_image.url}}">
             <div class="container">
                <div class="row">
                   <div class="col-xxl-12">
                      <div class="slider__content text-center">
                         {% comment %} <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span> {% endcomment %}
-                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
+                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">{{slider.text}}</h2>
 
                         <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
                            <a href ="{% url 'homeapp:contactpage' %}" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
@@ -25,42 +26,9 @@
                </div>
             </div>
          </div>
+         {% endfor %}
 
-         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-2.jpg">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xxl-12">
-                     <div class="slider__content text-center">
-                        {% comment %} <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span> {% endcomment %}
-                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
 
-                        <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
-                           <a href ="{% url 'homeapp:contactpage' %}" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
-                           <a href ="{% url 'homeapp:servicepage' %}" class="r-btn">our services<i class="far fa-arrow-right"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <div class="single-slider swiper-slide slider__height slider__overlay d-flex align-items-center" data-background="assets/img/slider/slider-3.jpg">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xxl-12">
-                     <div class="slider__content text-center">
-                        {% comment %} <span data-animation="fadeInUp" data-delay=".2s">25 Years Of Experience</span> {% endcomment %}
-                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".4s">Painting Service Company</h2>
-
-                        <div class="slider__btn" data-animation="fadeInUp" data-delay=".6s">
-                           <a href ="contact.html" class="r-btn r-btn-green mr-10">get started <i class="far fa-arrow-right"></i></a>
-                           <a href ="services.html" class="r-btn">our services<i class="far fa-arrow-right"></i></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
 
       </div>
       <div class="slider__nav">
@@ -99,6 +67,29 @@
        </div>
     </section>
     <!-- features area end -->
+
+
+    <section class="why__area pt-130 pb-130">
+      <div class="container">
+         <div class="row">
+            <div class="col-xxl-7 col-xl-6 col-lg-6">
+               <div class="why__thumb why__thumb-2 pr-70 w-img">
+                  <img style="width: 500px;height: 375px;" src="{% static 'img/subimg.webp' %}" alt="">
+               </div>
+            </div>
+            <div class="col-xxl-5 col-xl-6 col-lg-6">
+               <div class="why__wrapper-2 pt-25 pr-30">
+                  <div class="section__title-wrapper-2 mb-30">
+                     <h2 class="section__title section__title-2"> PS Painting <br>  Services Singapore</h2>
+                  </div>
+                  <p>Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
+  
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- why area end -->
 
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact,Services,Gallery,Review
+from .models import Contact,Services,Gallery,Review, Slider
 
 # Register your models here.
 
@@ -16,3 +16,4 @@ class Gallerylist(admin.ModelAdmin):
 admin.site.register(Gallery,Gallerylist)
 
 admin.site.register(Review)
+admin.site.register(Slider)
