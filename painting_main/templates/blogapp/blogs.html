@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+    <!-- page title area start -->
+    <section class="page__title-area pt-160 pb-165 p-relative page__title-overlay" data-background="{% static 'img/page-title/page-title-1.jpg' %}">
+       <div class="container">
+          <div class="row">
+             <div class="col-xxl-12">
+                <div class="page__title-wrapper">
+                   <h3 class="page__title">Blog</h3>
+                   <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                      </ol>
+                    </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- page title area end -->
+
+    <!-- blog area start -->
+    <section class="blog__area pt-130 pb-130">
+       <div class="container">
+          <div class="row">
+
+
+
+            <div class="col-xxl-8 col-xl-8 col-lg-8">
+                <div class="postbox__wrapper pr-20">
+
+
+                    {% for blog in blogs %}
+                   <article class="postbox__item format-image mb-50 transition-3">
+                      {% comment %} <div class="postbox__thumb w-img">
+                         <a href="blog-details.html">
+                            <img src="{{blog.image}}" alt="">
+                         </a>
+                      </div> {% endcomment %}
+                      <div class="postbox__content">
+                         <div class="postbox__meta">
+                            <span><i class="far fa-calendar-check"></i> {{blog.post_date}} </span>
+                            <span><a href="#"><i class="far fa-user"></i> {{blog.writer}}</a></span>
+                            {% comment %} <span><a href="#"><i class="fal fa-comments"></i> 02 Comments</a></span> {% endcomment %}
+                         </div>
+                         <h3 class="postbox__title">
+                            <a href="{% url 'blogapp:blog_details' blog.pk %}">{{blog.title}}</a>
+                         </h3>
+                         <div class="postbox__text">
+                            <p>{{blog.content|safe|truncatechars:100}}</p>
+                         </div>
+                         <div class="postbox__read-more">
+                            <a href="{% url 'blogapp:blog_details' blog.pk %}" class="r-btn">read more</a>
+                         </div>
+                      </div>
+                   </article>
+          {% endfor %}
+
+{% comment %} 
+
+                   <div class="basic-pagination">
+                      <nav>
+                         <ul>
+                            <li>
+                               <a href="blog.html">
+                                  <i class="far fa-angle-left"></i>
+                               </a>
+                            </li>
+                            <li>
+                               <a href="blog.html">1</a>
+                            </li>
+                            <li>
+                               <a href="blog.html" class="active">2</a>
+                            </li>
+                            <li>
+                               <a href="blog.html">3</a>
+                            </li>
+                            <li>
+                               <a href="blog.html">
+                                  <i class="far fa-angle-right"></i>
+                               </a>
+                            </li>
+                         </ul>
+                       </nav>
+                   </div> {% endcomment %}
+                </div>
+             </div>
+
+
+             
+             <div class="col-xxl-4 col-xl-4 col-lg-4">
+                <div class="sidebar__wrapper-2">
+    
+
+                   <div class="sidebar__widget mb-40">
+                      <div class="sidebar__widget-top mb-30">
+                         <h3 class="sidebar__widget-title">Recent Post</h3>
+                      </div>
+                      <div class="sidebar__widget-content">
+                         <div class="sidebar__post rc__post">
+                            <ul>
+
+                                {% for latest in latest_blogs %}
+                               <li>
+                                  <div class="rc__post d-flex align-items-center">
+                           
+                                     <div class="rc__post-content">
+                                        <h3 class="rc__post-title">
+                                           <a href="{% url 'blogapp:blog_details' latest.pk %}">{{latest.title}}</a>
+                                        </h3>
+                                        <div class="rc__meta">
+                                           <span>{{latest.post_date}}</span>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </li>
+                               {% endfor %}
+
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+       
+        
+                
+                </div>
+             </div>
+
+
+
+          
+
+                </div>
+             </div>
+        
+          </div>
+       </div>
+    </section>
+    <!-- blog area end -->
+ </main>
+
+
+{% endblock %}

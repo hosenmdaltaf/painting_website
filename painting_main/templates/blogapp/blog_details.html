@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main>
+
+    <!-- page title area start -->
+    <section class="page__title-area pt-160 pb-165 p-relative page__title-overlay" data-background="{{object.image.url}}">
+       <div class="container">
+          <div class="row">
+             <div class="col-xxl-12">
+                <div class="page__title-wrapper">
+                   <h3 class="page__title">{{object.title}}</h3>
+                   <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">{{object.post_date}}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{object.writer}}</li>
+                      </ol>
+                    </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- page title area end -->
+
+    <!-- blog details area start -->
+    <section class="blog__details-area pt-130 pb-130">
+       <div class="container">
+          <div class="row">
+             <div class="col-xxl-8 col-xl-8 col-lg-8">
+                <div class="blog__details-wrapper">
+                   <article class="postbox__item postbox__item-single format-image mb-50 transition-3">
+
+                    <div class="postbox__text postbox__text-single mb-35">
+                        <p>{{object.content|safe}}</p>
+                     </div>
+
+
+
+                     <div class="sidebar__widget mb-40">
+                        <div class="sidebar__widget-top mb-30">
+                           <h3 class="sidebar__widget-title">All comments</h3>
+                        </div>
+                        <div class="sidebar__widget-content">
+                           <div class="sidebar__post rc__post">
+                              <ul>
+                                 {% if comments %}
+                                  {% for latest in comments %}
+                                 <li>
+                                    <div class="rc__post d-flex align-items-center">
+                             
+                                       <div class="rc__post-content">
+                                          <h3 class="rc__post-title">
+                                             <a href="#">{{latest.text}}</a>
+                                          </h3>
+                                          <div class="rc__meta">
+                                             <span>{{latest.created_date}}</span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 {% endfor %}
+                                 {% else%}
+                                 <li>
+                                    <div class="rc__post d-flex align-items-center">
+                             
+                                       <div class="rc__post-content">
+                                          <h3 class="rc__post-title">
+                                             <a href="#">No comments made yet</a>
+                                          </h3>
+                                      
+                                       </div>
+                                    </div>
+                                 </li>
+                                 {% endif %}
+  
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+
+
+                      <div class="postbox__content postbox__content-single">              
+                         <div class="postbox__comment">
+                            <div class="postbox__comment-top mb-35">
+                               <h3 class="postbox__comment-title">Leave a reply</h3>
+                            </div>
+                            <div class="postbox__comment-form">
+                               <form action="#" method="POST">
+                                   {% csrf_token %}
+
+                                  <div class="row">
+                            
+                                     <div class="col-xxl-12">
+                                        <div class="postbox__comment-input">
+                                           <span>Comments*</span>
+                                           <textarea name="text"></textarea>
+                                        </div>
+                                     </div>
+                                     <div class="col-xxl-12">
+                                        <div class="postbox__comment-btn">
+                                           <button type="submit" class="r-btn r-btn-yellow">Post Comment <i class="far fa-arrow-right"></i></button>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </form>
+                            </div>
+                         </div>
+                      </div>
+
+                   </article>
+                </div>
+             </div>
+             <div class="col-xxl-4 col-xl-4 col-lg-4">
+                <div class="sidebar__wrapper-2">
+    
+
+                   <div class="sidebar__widget mb-40">
+                      <div class="sidebar__widget-top mb-30">
+                         <h3 class="sidebar__widget-title">Recent Post</h3>
+                      </div>
+                      <div class="sidebar__widget-content">
+                         <div class="sidebar__post rc__post">
+                            <ul>
+
+                                {% for latest in latest_blogs %}
+                               <li>
+                                  <div class="rc__post d-flex align-items-center">
+                           
+                                     <div class="rc__post-content">
+                                        <h3 class="rc__post-title">
+                                           <a href="{% url 'blogapp:blog_details' latest.pk %}">{{latest.title}}</a>
+                                        </h3>
+                                        <div class="rc__meta">
+                                           <span>{{latest.post_date}}</span>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </li>
+                               {% endfor %}
+
+                            </ul>
+                         </div>
+                      </div>
+                   </div>
+       
+        
+                
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- blog details area end -->
+ </main>
+
+
+{% endblock %}

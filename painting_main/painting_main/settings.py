@@ -32,7 +32,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_summernote',
+    
+    'blogapp.apps.BlogappConfig',
     'homeapp.apps.HomeappConfig',
+
+    'admin_volt.apps.AdminVoltConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

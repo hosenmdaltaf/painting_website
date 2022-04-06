@@ -59,7 +59,7 @@
              </div>
              <div class="col-xxl-6 offset-xxl-1 col-xl-6 col-lg-6">
                 <div class="features__wrapper-3">
-                   <p>Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
+                   <p style="text-align: justify;">Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
                 </div>
              </div>
           </div>
@@ -82,7 +82,7 @@
                   <div class="section__title-wrapper-2 mb-30">
                      <h2 class="section__title section__title-2"> PS Painting <br>  Services Singapore</h2>
                   </div>
-                  <p>Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
+                  <p style="text-align: justify;">Who likes living in a space that is just whitewashed or white in colour? Isn’t it boring? Don’t we all need some colour in our lives? Believe it or not, the kind of colours we choose for our walls or homes or offices, affects our thinking and personality to a certain extent. It is therefore very important to choose colours with great attention and care. For example, too many bright colours in a bedroom will never let you calm down or relax. Subconsciously, bright colours create hyperactiveness and you can never be at proper peace.</p>
   
                </div>
             </div>
@@ -113,8 +113,9 @@
                   <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6">
                      <div class="services__item services__item-2 p-relative mb-30">
                         <div class="services__thumb w-img">
-                           <img src="{{service.thumnail_images.url}}" alt="" style="height:250px;">
-                        </div>
+                           <a href="{% url 'homeapp:services_details' service.pk %}"> <img src="{{service.thumnail_images.url}}" alt="" style="height:250px;">
+                           </a>
+                           </div>
                         <div class="services__content services__content-2 text-center">
                            <div class="services__icon services__icon-2">
                               <i class="flaticon-paint-1"></i>
