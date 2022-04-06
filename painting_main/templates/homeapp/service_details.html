@@ -3,6 +3,223 @@
 
 {% block content %}
 
+<style>
+   .trigger{
+      text-align: center;
+    padding: 7px 13px;
+    background: #3e3e3e;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    /* margin-bottom: 5px; */
+    border: none;
+    border-radius: 5px;
+    font-family: cursive;
+    
+  } 
+  
+  
+  /* .box {
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.2);
+    padding: 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+  } */
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    transition: opacity 500ms;
+    z-index: 1030;
+  
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }
+  
+  
+  
+  
+  form { max-width:420px;
+    margin:5px auto; }
+  
+  .feedback-input {
+  
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border:2px solid #f8f4ef;  
+    {% comment %} border:2px solid #CC6666; {% endcomment %}
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:100%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  
+  .feedback-input:focus { border:2px solid #CC4949; }
+  
+  textarea {
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+  }
+  
+  [type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    {% comment %} background:#CC6666;  {% endcomment %}
+    background:#fad105 ;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:#2c3941;
+    font-size:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { 
+     background:#2c3941;
+     color:white; 
+   }
+  
+  
+  .dropdownbox select {
+  
+    padding: 12px;
+    {% comment %} width: 300px; {% endcomment %}
+    width:100%;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 20px;
+    dropdownbox-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .dropdownbox::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .dropdownbox:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .dropdownbox select option {
+    padding: 30px;
+    width: 100%;
+  }
+
+  .nice-select {
+   -webkit-tap-highlight-color: transparent;
+   background-color: #fff;
+   border-radius: 5px;
+   border: solid 1px #e8e8e8;
+   box-sizing: border-box;
+   clear: both;
+   cursor: pointer;
+   display: block;
+   float: left;
+   font-family: inherit;
+   font-size: 14px;
+   font-weight: normal;
+   height: 42px;
+   line-height: 40px;
+   outline: none;
+   padding-left: 18px;
+   padding-right: 30px;
+   position: relative;
+   text-align: left !important;
+   -webkit-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   white-space: nowrap;
+   width: 100%;
+   margin-bottom: 15px;
+   }
+  
+  
+  
+  
+</style>
+
 
          <!-- page title area start -->
          <section class="page__title-area pt-160 pb-165 p-relative page__title-overlay" data-background="{% static 'img/page-title/page-title-1.jpg' %}">
@@ -12,12 +229,6 @@
                      <div class="page__title-wrapper">
                         <h3 class="page__title">{{data.name}}</h3>
                         <p>{{data.short_description}}</p>
-                        {% comment %} <nav aria-label="breadcrumb">
-                           <ol class="breadcrumb">
-                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                             <li class="breadcrumb-item active" aria-current="page">Service Details</li>
-                           </ol>
-                         </nav> {% endcomment %}
                      </div>
                   </div>
                </div>
@@ -39,12 +250,54 @@
                            <h3 class="services__details-title">{{data.name}}</h3>
                            <p>{{data.details}} </p>
                         </div>
+
+                        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
+                           <div class="contact__btn-3 contact__btn-4">
+                              <button type="submit" class="r-btn r-btn-yellow w-100">
+                                 <a href="#popup1">Order Now </a><i class="far fa-arrow-right"></i></button>
+                           </div>
+                        </div>
+                        
+                        <!-- Modal -->
+                       <div id="popup1" class="overlay">
+                           <div class="popup">
+                               <h2>Please fillup the form</h2>
+                               <a class="close" href="#">&times;</a>
+                               <div class="content">
+                                 
+                                   <form action="" method="POST" enctype="multipart/form-data">  
+                                       {% csrf_token %}    
+                                       <input name="name" type="text" class="feedback-input" placeholder="Name" />
+                                       <input name="email" type="text" class="feedback-input" placeholder="email" />
+               
+                                 <div class="dropdownbox">
+                                   <select required name="services"> 
+                                     <option value='none'>Select one service</option>
+                                     {% for service in services %}
+                                     <option value='{{service.id}}'>{{service.name}}</option>
+                                     {% endfor %}
+                                   </select>
+                                 </div>
+               
+                                       <input required name="phone" type="text" class="feedback-input" placeholder="write your phone number" />
+                                       <textarea name="message" class="feedback-input" placeholder="write your query"></textarea>
+                                       <input type="submit" value="SUBMIT"/>
+                                     </form>
+               
+                                   </div> 
+               
+               
+                               </div>
+                           </div>
+
+                           
+
                     
                 
                      </div>
                   </div>
 
-
+               
                   <div class="col-xxl-4 col-xl-4 col-lg-4">
                      <div class="services__sidebar">
                         <div class="services__widget mb-30">
@@ -68,8 +321,6 @@
          <!-- services details area end -->
 
 
-
-
        <!-- testimonial area start -->
        <section class="testimonial__area pt-125 pb-130 grey-bg p-relative z-index-1">
          <div class="container">
@@ -91,7 +342,7 @@
       <!-- testimonial area end -->
 
        <!-- contact area start -->
- <section class="contact__area pt-90 pb-130">
+ {% comment %} <section class="contact__area pt-90 pb-130">
    <div class="container">
       <div class="row">
          <div class="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1">
@@ -154,6 +405,7 @@
                                        <textarea name="message" placeholder="Message"></textarea>
                                     </div>
                                  </div>
+
                                  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact__btn-3 contact__btn-4">
                                        <button type="submit" class="r-btn r-btn-yellow w-100">send message <i class="far fa-arrow-right"></i></button>
@@ -168,7 +420,7 @@
          </div>
       </div>
    </div>
-</section>
+</section> {% endcomment %}
 <!-- contact area end -->
 
 <div class="contact__map">

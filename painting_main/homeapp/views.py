@@ -97,6 +97,7 @@ def contact(request):
 
 def services_details(request,pk):
     data = Services.objects.get(pk=pk)
+    services= Services.objects.all()
     if request.method =="POST":
         try:
             name= request.POST.get('name')
@@ -109,6 +110,7 @@ def services_details(request,pk):
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
     context={
-        'data':data
+        'data':data,
+        'services':services
     }
     return render(request,'homeapp/service_details.html',context)
