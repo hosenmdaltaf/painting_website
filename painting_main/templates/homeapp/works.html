@@ -109,25 +109,25 @@
                               <div class="row">
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input-3">
-                                       <input name="name" type="text" placeholder="Your Full Name">
+                                       <input required name="name" type="text" placeholder="Your Full Name">
                                        <i class="far fa-user"></i>
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input-3">
-                                       <input name="email" type="email" placeholder="Your Email Address">
+                                       <input required name="email" type="email" placeholder="Your Email Address">
                                        <i class="far fa-envelope"></i>
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input-3">
-                                       <input name="phone" type="tel" placeholder="Phone Number">
+                                       <input required name="phone" type="tel" placeholder="Phone Number">
                                        <i class="far fa-phone"></i>
                                     </div>
                                  </div>
                                  <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
                                     <div class="contact__input-3">
-                                       <select name="services">
+                                       <select required name="services">
                                           <option >Select Services</option>
                                           {% for service in all_services %}
                                           <option >{{service.name}}</option>
@@ -138,7 +138,7 @@
                                  </div>
                                  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
                                     <div class="contact__input-3">
-                                       <textarea name="message" placeholder="Message"></textarea>
+                                       <textarea required name="message" placeholder="Message"></textarea>
                                     </div>
                                  </div>
                                  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
