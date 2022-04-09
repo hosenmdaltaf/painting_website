@@ -4,6 +4,10 @@ from django.shortcuts import render
 from .models import Services,Review,Contact,Gallery, Slider
 from django.contrib import messages
 
+from django.core.mail import send_mail
+from django.conf import settings
+
+
 
 # Create your views here.
 def home(request):
@@ -18,6 +22,12 @@ def home(request):
             services= request.POST.get('services')
             message= request.POST.get('message')
             Contact.objects.create(name=name,email=email,phone=phone,services=services,message=message)
+
+            subject = 'Message from holidayzbd.Contact  page'
+            message = f'This is user-----> Name:{name}, E-mail:{email},Message{message},Phonenumber{phone}.'
+            email_from = settings.EMAIL_HOST_USER
+            send_mail(subject, message, email_from, ['altafhm2000@gmail.com']) 
+
             return render(request,'global/thankyou.html')
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
@@ -37,6 +47,12 @@ def about(request):
             services= request.POST.get('services')
             message= request.POST.get('message')
             Contact.objects.create(name=name,email=email,phone=phone,services=services,message=message)
+
+            subject = 'Message from holidayzbd.Contact  page'
+            message = f'This is user-----> Name:{name}, E-mail:{email},Message{message},Phonenumber{phone}.'
+            email_from = settings.EMAIL_HOST_USER
+            send_mail(subject, message, email_from, ['altafhm2000@gmail.com']) 
+
             return render(request,'global/thankyou.html')
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
@@ -52,6 +68,12 @@ def works(request):
             services= request.POST.get('services')
             message= request.POST.get('message')
             Contact.objects.create(name=name,email=email,phone=phone,services=services,message=message)
+
+            subject = 'Message from holidayzbd.Contact  page'
+            message = f'This is user-----> Name:{name}, E-mail:{email},Message{message},Phonenumber{phone}.'
+            email_from = settings.EMAIL_HOST_USER
+            send_mail(subject, message, email_from, ['altafhm2000@gmail.com']) 
+
             return render(request,'global/thankyou.html')
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
@@ -70,30 +92,18 @@ def contact(request):
             services= request.POST.get('services')
             message= request.POST.get('message')
             Contact.objects.create(name=name,email=email,phone=phone,services=services,message=message)
+
+            subject = 'Message from holidayzbd.Contact  page'
+            message = f'This is user-----> Name:{name}, E-mail:{email},Message{message},Phonenumber{phone}.'
+            email_from = settings.EMAIL_HOST_USER
+            send_mail(subject, message, email_from, ['altafhm2000@gmail.com']) 
+
             return render(request,'global/thankyou.html')
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
 
     return render(request,'homeapp/contact.html')
 
-
-# def contact(request):
-#     if request.method == "POST":
-#         try:
-#             name = request.POST.get("name")
-#             email = request.POST.get("email")
-#             message = request.POST.get("message")
-#             phonenumber = request.POST.get("phonenumber") 
-#             print('----------------------test1------------------')
-#             print(name)
-#             print(email)
-#             print(message)
-#             print(phonenumber)
-#             Contact.objects.create(name=name,message=message,phonenumber=phonenumber,email=email)
-#             return render(request,'global/thankyou.html')
-#         except:
-#             messages.warning(request, 'Please fill up all the form feild currectly!')
-#     return render(request,'contactapp/contact.html')
 
 def services_details(request,pk):
     data = Services.objects.get(pk=pk)
@@ -106,11 +116,22 @@ def services_details(request,pk):
             services= request.POST.get('services')
             message= request.POST.get('message')
             Contact.objects.create(name=name,email=email,phone=phone,services=services,message=message)
+
+
+            subject = 'Message from holidayzbd.Contact  page'
+            message = f'This is user-----> Name:{name}, E-mail:{email},Message{message},Phonenumber{phone}.'
+            email_from = settings.EMAIL_HOST_USER
+            send_mail(subject, message, email_from, ['altafhm2000@gmail.com']) 
+
             return render(request,'global/thankyou.html')
         except:
             messages.warning(request, 'Please fill up all the form feild currectly!')
+
     context={
         'data':data,
         'services':services
     }
     return render(request,'homeapp/service_details.html',context)
+
+
+
