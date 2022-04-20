@@ -140,10 +140,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #MY EMAIL SETTING
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'demo.sureseba.com'  #Hosted on namecheap Ex: mail.pure.com
+EMAIL_HOST = 'demo.host.com'  #Hosted on namecheap Ex: mail.pure.com
 EMAIL_USE_TLS = True
 EMAIL_PORT = 26 #This will be different based on your Host, for Namecheap I use this`
 # EMAIL_PORT = 26
-EMAIL_HOST_USER = 'island@demo.sureseba.com' # Ex: info@pure.com
-EMAIL_HOST_PASSWORD = 'altaf654321' # for the email you created through cPanel. The password for that
+EMAIL_HOST_USER = 'info@pure.com' # Ex: info@pure.com
+EMAIL_HOST_PASSWORD = 'password' # for the email you created through cPanel. The password for that
 
